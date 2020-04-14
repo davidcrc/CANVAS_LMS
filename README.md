@@ -21,7 +21,7 @@ sudo -u postgres createdb canvas_production --owner=canvas
 
 
 - Getting the code:
-
+cd
 sudo apt-get install -y git-core
 git clone https://github.com/instructure/canvas-lms.git canvas
 cd canvas
