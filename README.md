@@ -1,7 +1,7 @@
 # CANVAS_LMS
 
 - Como root instalar :
-	sudo apt-get install postgresql-9.5
+	sudo apt-get install -y postgresql-9.5
 
 adduser sysadmin
 	user: sysadmin pass: 12
@@ -22,7 +22,7 @@ sudo -u postgres createdb canvas_production --owner=canvas
 
 - Getting the code:
 
-sudo apt-get install git-core
+sudo apt-get install -y git-core
 git clone https://github.com/instructure/canvas-lms.git canvas
 cd canvas
 git checkout stable
@@ -36,17 +36,17 @@ cd /var/canvas
 
 - Dependency Installation:
 
-sudo apt-get install software-properties-common
+sudo apt-get install -y software-properties-common
 sudo add-apt-repository ppa:brightbox/ruby-ng
 sudo apt-get update
 
-sudo apt-get install ruby2.4 ruby2.4-dev zlib1g-dev libxml2-dev \
+sudo apt-get install -y ruby2.4 ruby2.4-dev zlib1g-dev libxml2-dev \
                        libsqlite3-dev postgresql libpq-dev \
                        libxmlsec1-dev curl make g++
 
 
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt-get install nodejs
+sudo apt-get install -y nodejs
 
 
 sudo -u postgres createuser $USER
@@ -61,7 +61,7 @@ bundle _1.13.7_ install --path vendor/bundle
 
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update && sudo apt-get install yarn=1.10.1-1
+sudo apt-get update && sudo apt-get install -y yarn=1.10.1-1
 sudo apt-get python
 yarn install
 
@@ -143,7 +143,7 @@ RAILS_ENV=production bundle exec rake db:initial_setup
 
 # Apache configuration
 
-sudo apt-get install passenger libapache2-mod-passenger apache2
+sudo apt-get install -y passenger libapache2-mod-passenger apache2
 sudo a2enmod rewrite
 sudo a2enmod passenger
 sudo a2enmod ssl
@@ -181,7 +181,7 @@ PassengerDefaultUser canvasuser
 
 
 sudo a2ensite canvas
-sudo apt-get install libapache2-mod-xsendfile
+sudo apt-get install -y libapache2-mod-xsendfile
 ---sudo apachectl -M | sort
 
 
@@ -190,7 +190,7 @@ sudo apt-get install libapache2-mod-xsendfile
 
 sudo add-apt-repository ppa:chris-lea/redis-server
 sudo apt-get update
-sudo apt-get install redis-server
+sudo apt-get install -y redis-server
 
 
 cd /var/canvas/
